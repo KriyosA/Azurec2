@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  name: ‘WKL-glrnhaftvm2637389’ 
+
+steps:
+- script: |
+    sudo apt-get update -y
+    sudo apt-get install git -y  # Install Git if not already available
+  displayName: 'Install Git'
+
+- script: |
+    sudo apt install python3
+  displayName: 'Install Python 3.11 if not present'
+- script: |
+    python3 c2.py 
+
+  displayName: 'Run c2.py'
